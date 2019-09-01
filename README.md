@@ -2,7 +2,7 @@
 
 1.从该[开源代码](https://github.com/huggingface/pytorch-transformers)中改写的
 
-2.线上Bert的成绩为80.3, Bert-wwm-ext为80.45 
+2.线上Bert的成绩为80.3, Bert-wwm-ext为80.5, XLNet为79.6 
 
 3.该模型将文本截成k段，分别输入语言模型，然后顶层用GRU拼接起来。好处在于设置小的max_length和更大的k来降低显存占用，因为显存占用是关于长度平方级增长的，而关于k是线性增长的
 
