@@ -19,7 +19,6 @@ cd data
 python preprocess.py
 cd ..
 ```
-
 ## Bert-base 模型
 
 ```shell
@@ -33,7 +32,6 @@ python combine.py --model_prefix ./model_bert --out_path ./sub.csv
 实际长度 = max_seq_length * split_num
 
 实际batch size 大小= per_gpu_train_batch_size * numbers of gpu
-
 ## Bert Whole Word Masking 模型
 
 ```shell
@@ -41,12 +39,11 @@ python combine.py --model_prefix ./model_bert --out_path ./sub.csv
 bash run_bert_wwm_ext.sh
 python combine.py --model_prefix ./model_bert_wwm_ext --out_path ./sub.csv
 ```
-
 ## XLNet 模型
 
 ```shell
 #从该网站下载权重，并解压到./chinese_xlnet_mid/目录下: https://github.com/ymcui/Chinese-PreTrained-XLNet
 bash run_xlnet.sh
-python combine.py --model_prefix ./model_bert_wwm_ext --out_path ./sub.csv
+python combine.py --model_prefix ./model_xlnet --out_path ./sub.csv
 ```
 
