@@ -1,26 +1,7 @@
 import pandas as pd
 import os
 import random
-import jieba
 
-# 创建停用词列表
-def stopwordslist():
-    stopwords = [line.strip() for line in open('stopwords/哈工大停用词表.txt',encoding='UTF-8').readlines()]
-    return stopwords
-# 创建一个停用词列表
-stopwords = stopwordslist()
-# 对句子进行中文分词
-def seg_depart(sentence):
-    # 对文档中的每一行进行中文分词
-    sentence_depart = jieba.cut(sentence.strip())
-    # 输出结果为outstr
-    outstr = ''
-    # 去停用词
-    for word in sentence_depart:
-        if word not in stopwords:
-                outstr += word
-                outstr += " "
-    return outstr
 
 
 
