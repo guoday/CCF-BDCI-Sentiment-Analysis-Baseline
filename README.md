@@ -1,16 +1,17 @@
-## CCF-BDCI-Sentiment-Analysis-Baseline
+# CCF-BDCI-Sentiment-Analysis-Baseline
 
-The code is modified from https://github.com/huggingface/pytorch-transformers.  
+1.代码从[该开源代码](https://github.com/huggingface/pytorch-transformers)改写
+2.线上Bert的成绩为80.3 
 
-### 1. Introduction of the task
+## 赛题说明
 
-Please refer to https://www.datafountain.cn/competitions/350
+请从查看该[网站](https://www.datafountain.cn/competitions/350)了解赛题 
 
-### 2. Download dataset 
+## 下载数据集
 
-Download dataset and unzip from the website https://www.datafountain.cn/competitions/350/datasets. And put all into the ./data folder.
+从该[网站](https://www.datafountain.cn/competitions/350/datasets)中下载数据集, 并解压在./data目录。
 
-### 3. Preprocess dataset
+## 数据预处理
 
 ```shell
 cd data
@@ -18,32 +19,32 @@ python preprocess.py
 cd ..
 ```
 
-### 4. Run Bert-base
+## Bert-base 模型
 
 ```shell
 bash run_bert.sh
-###combine result 5 fold
+#5 fold取平均
 python combine.py --model_prefix ./model_bert --out_path ./sub.csv
 ```
 
-***Note:***
+**注意:**
 
-actual length = max_seq_length * split_num
+实际长度 = max_seq_length * split_num
 
-actual batch size = per_gpu_train_batch_size * numbers of gpu
+实际batch size 大小= per_gpu_train_batch_size * numbers of gpu
 
-### 5. Run Bert Whole Word Masking
+## Bert Whole Word Masking 模型
 
 ```shell
-#Download pytorch model weights in the ./chinese_wwm_ex_bert from https://github.com/ymcui/Chinese-BERT-wwm
+#从该网站下载权重，并解压到chinese_wwm_ex_bert目录下:  https://github.com/ymcui/Chinese-BERT-wwm
 bash run_bert_wwm_ext.sh
 python combine.py --model_prefix ./model_bert_wwm_ext --out_path ./sub.csv
 ```
 
-### 6. Run XLNet
+## XLNet 模型
 
 ```shell
-#Download pytorch model weights in the ./chinese_xlnet_mid/ from https://github.com/ymcui/Chinese-PreTrained-XLNet
+#从该网站下载权重，并解压到./chinese_xlnet_mid/目录下: https://github.com/ymcui/Chinese-PreTrained-XLNet
 bash run_xlnet.sh
 python combine.py --model_prefix ./model_bert_wwm_ext --out_path ./sub.csv
 ```
