@@ -1,6 +1,6 @@
 # CCF-BDCI-Sentiment-Analysis-Baseline
 
-1.代码从[该开源代码](https://github.com/huggingface/pytorch-transformers)改写
+1.从该[开源代码](https://github.com/huggingface/pytorch-transformers)中改写的
 
 2.线上Bert的成绩为80.3 
 
