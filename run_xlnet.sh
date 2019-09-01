@@ -8,7 +8,7 @@ python run_xlnet.py \
 --do_train \
 --do_eval \
 --do_test \
---data_dir ./data_$i \
+--data_dir ./data/data_$i \
 --output_dir ./model_xlnet$i \
 --max_seq_length 150 \
 --split_num 10 \

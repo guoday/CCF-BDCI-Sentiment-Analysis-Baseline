@@ -8,7 +8,7 @@ python run_bert.py \
 --do_train \
 --do_eval \
 --do_test \
---data_dir ./data_$i \
+--data_dir ./data/data_$i \
 --output_dir ./model_bert$i \
 --max_seq_length 256 \
 --split_num 3 \
