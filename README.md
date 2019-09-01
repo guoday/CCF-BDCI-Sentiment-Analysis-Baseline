@@ -27,7 +27,7 @@ bash run_bert.sh
 python combine.py --model_prefix ./model_bert --out_path ./sub.csv
 ```
 
-**注意:**
+**注:**
 
 实际长度 = max_seq_length * split_num
 
