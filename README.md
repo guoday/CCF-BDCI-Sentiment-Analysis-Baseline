@@ -21,7 +21,7 @@ cd ..
 ### 4. Run Bert-base
 
 ```shell
-bash run_bert.py
+bash run_bert.sh
 ###combine result 5 fold
 python combine.py --model_prefix ./model_bert --out_path ./sub.csv
 ```
@@ -44,7 +44,7 @@ python combine.py --model_prefix ./model_bert_wwm_ext --out_path ./sub.csv
 
 ```shell
 #Download pytorch model weights in the ./chinese_xlnet_mid/ from https://github.com/ymcui/Chinese-PreTrained-XLNet
-bash run_xlnet.py
+bash run_xlnet.sh
 python combine.py --model_prefix ./model_bert_wwm_ext --out_path ./sub.csv
 ```
 
