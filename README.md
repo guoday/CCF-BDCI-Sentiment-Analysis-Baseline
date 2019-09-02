@@ -8,7 +8,7 @@
 
 ## 赛题说明
 
-请从查看该[网站](https://www.datafountain.cn/competitions/350)了解赛题 
+请查看该[网站](https://www.datafountain.cn/competitions/350)了解赛题 
 
 ## 下载数据集
 
