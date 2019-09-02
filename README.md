@@ -34,6 +34,8 @@ python combine.py --model_prefix ./model_bert --out_path ./sub.csv
 实际长度 = max_seq_length * split_num
 
 实际batch size 大小= per_gpu_train_batch_size * numbers of gpu
+
+上面的结果所使用的是4卡GPU，因此batch size为4。如果只有1卡的话，那么per_gpu_train_batch_size应设为4, max_length设置小一些。
 ## Bert Whole Word Masking 模型
 
 ```shell
