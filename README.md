@@ -62,7 +62,7 @@ bash run_xlnet.sh
 python combine.py --model_prefix ./model_xlnet --out_path ./sub.csv
 ```
 
-## XLNet 模型
+## Roberta 模型
 
 ```shell
 #从该网站下载权重，并解压到./chinese_roberta/目录下: https://github.com/brightmart/roberta_zh
