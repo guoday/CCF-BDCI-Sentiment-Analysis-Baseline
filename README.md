@@ -47,6 +47,14 @@ python combine.py --model_prefix ./model_bert --out_path ./sub.csv
 
 4)如果显存太小，可以设置gradient_accumulation_steps参数，比如gradient_accumulation_steps=2，batch size=4，那么就会运行2次，每次batch size为2，累计梯度后更新，等价于batch size=4，但速度会慢两倍。而且迭代次数也要相应提高两倍，即train_steps设为10000
 
+具体batch size可看运行时的log，如：
+
+09/06/2019 21:03:41 - INFO - __main__ -   ***** Running training *****
+09/06/2019 21:03:41 - INFO - __main__ -     Num examples = 5872
+09/06/2019 21:03:41 - INFO - __main__ -     Batch size = 4
+09/06/2019 21:03:41 - INFO - __main__ -     Num steps = 5000
+
+
 ## Bert Whole Word Masking 模型
 
 ```shell
