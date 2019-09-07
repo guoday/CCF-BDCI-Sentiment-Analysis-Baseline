@@ -50,8 +50,11 @@ python combine.py --model_prefix ./model_bert --out_path ./sub.csv
 具体batch size可看运行时的log，如：
 
 09/06/2019 21:03:41 - INFO - __main__ -   ***** Running training *****
+
 09/06/2019 21:03:41 - INFO - __main__ -     Num examples = 5872
+
 09/06/2019 21:03:41 - INFO - __main__ -     Batch size = 4
+
 09/06/2019 21:03:41 - INFO - __main__ -     Num steps = 5000
 
 
