@@ -2,9 +2,17 @@
 
 1.从该[开源代码](https://github.com/huggingface/pytorch-transformers)中改写的
 
-2.线上Bert的成绩为80.3, Bert-wwm-ext为80.5, XLNet为79.6 
+2.该模型将文本截成k段，分别输入语言模型，然后顶层用GRU拼接起来。好处在于设置小的max_length和更大的k来降低显存占用，因为显存占用是关于长度平方级增长的，而关于k是线性增长的
 
-3.该模型将文本截成k段，分别输入语言模型，然后顶层用GRU拼接起来。好处在于设置小的max_length和更大的k来降低显存占用，因为显存占用是关于长度平方级增长的，而关于k是线性增长的
+| 模型 | 线上F1 |
+| :------- | :---------: |
+| BERT | 80.3 |
+| Bert-wwm-ext | 80.5 | 
+| XLNet | 79.6 | 
+| Roberta-mid | 80.5 |
+
+
+
 
 ## 赛题说明
 
@@ -52,5 +60,15 @@ python combine.py --model_prefix ./model_bert_wwm_ext --out_path ./sub.csv
 #从该网站下载权重，并解压到./chinese_xlnet_mid/目录下: https://github.com/ymcui/Chinese-PreTrained-XLNet
 bash run_xlnet.sh
 python combine.py --model_prefix ./model_xlnet --out_path ./sub.csv
+```
+
+## XLNet 模型
+
+```shell
+#从该网站下载权重，并解压到./chinese_roberta/目录下: https://github.com/brightmart/roberta_zh
+mv chinese_roberta/bert_config_middle.json chinese_roberta/config.json
+python -u -m pytorch_transformers.convert_tf_checkpoint_to_pytorch --tf_checkpoint_path chinese_roberta/ --bert_config_file chinese_roberta/config.json --pytorch_dump_path chinese_roberta/pytorch_model.bin
+bash run_roberta.sh
+python combine.py --model_prefix ./model_roberta --out_path ./sub.csv
 ```
 
