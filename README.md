@@ -10,6 +10,7 @@
 | Bert-wwm-ext | 80.5 | 
 | XLNet | 79.6 | 
 | Roberta-mid | 80.5 |
+| Roberta-large (max_seq_length=512, split_num=1) | 81.25 |
 
 
 
