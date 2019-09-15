@@ -75,9 +75,8 @@ python combine.py --model_prefix ./model_xlnet --out_path ./sub.csv
 ```
 
 ## Roberta 模型
-
+从该网站下载tensorflow版本的权重，并解压到./chinese_roberta/目录下: https://github.com/brightmart/roberta_zh
 ```shell
-#从该网站下载权重，并解压到./chinese_roberta/目录下: https://github.com/brightmart/roberta_zh
 mv chinese_roberta/bert_config_middle.json chinese_roberta/config.json
 python -u -m pytorch_transformers.convert_tf_checkpoint_to_pytorch --tf_checkpoint_path chinese_roberta/ --bert_config_file chinese_roberta/config.json --pytorch_dump_path chinese_roberta/pytorch_model.bin
 bash run_roberta.sh
