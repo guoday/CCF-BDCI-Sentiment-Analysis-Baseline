@@ -6,7 +6,7 @@
 
 | 模型 | 线上F1 |
 | :------- | :---------: |
-| BERT | 80.3 |
+| Bert-base | 80.3 |
 | Bert-wwm-ext | 80.5 | 
 | XLNet-mid | 79.6 | 
 | XLNet-large |  --  |
@@ -65,14 +65,14 @@ bash run_bert_wwm_ext.sh
 python combine.py --model_prefix ./model_bert_wwm_ext --out_path ./sub.csv
 ```
 
-## XLNet 模型
+## XLNet-mid 模型
 从该网站下载pytorch权重，并解压到./chinese_xlnet_mid/目录下: https://github.com/ymcui/Chinese-PreTrained-XLNet
 ```shell
 bash run_xlnet.sh
 python combine.py --model_prefix ./model_xlnet --out_path ./sub.csv
 ```
 
-## Roberta 模型
+## Roberta-mid 模型
 从该网站下载tensorflow版本的权重，并解压到./chinese_roberta/目录下: https://github.com/brightmart/roberta_zh
 ```shell
 mv chinese_roberta/bert_config_middle.json chinese_roberta/config.json
