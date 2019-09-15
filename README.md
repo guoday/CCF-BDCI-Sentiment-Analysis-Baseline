@@ -13,6 +13,25 @@
 | Roberta-large (max_seq_length=512, split_num=1) | 81.25 |
 
 
+**注:**
+
+1)实际长度 = max_seq_length * split_num
+
+2)实际batch size 大小= per_gpu_train_batch_size * numbers of gpu
+
+3)上面的结果所使用的是4卡GPU，因此batch size为4。如果只有1卡的话，那么per_gpu_train_batch_size应设为4, max_length设置小一些。
+
+4)如果显存太小，可以设置gradient_accumulation_steps参数，比如gradient_accumulation_steps=2，batch size=4，那么就会运行2次，每次batch size为2，累计梯度后更新，等价于batch size=4，但速度会慢两倍。而且迭代次数也要相应提高两倍，即train_steps设为10000
+
+具体batch size可看运行时的log，如：
+
+09/06/2019 21:03:41 - INFO - __main__ -   ***** Running training *****
+
+09/06/2019 21:03:41 - INFO - __main__ -     Num examples = 5872
+
+09/06/2019 21:03:41 - INFO - __main__ -     Batch size = 4
+
+09/06/2019 21:03:41 - INFO - __main__ -     Num steps = 5000
 
 
 ## 赛题说明
@@ -38,38 +57,16 @@ bash run_bert.sh
 python combine.py --model_prefix ./model_bert --out_path ./sub.csv
 ```
 
-**注:**
-
-1)实际长度 = max_seq_length * split_num
-
-2)实际batch size 大小= per_gpu_train_batch_size * numbers of gpu
-
-3)上面的结果所使用的是4卡GPU，因此batch size为4。如果只有1卡的话，那么per_gpu_train_batch_size应设为4, max_length设置小一些。
-
-4)如果显存太小，可以设置gradient_accumulation_steps参数，比如gradient_accumulation_steps=2，batch size=4，那么就会运行2次，每次batch size为2，累计梯度后更新，等价于batch size=4，但速度会慢两倍。而且迭代次数也要相应提高两倍，即train_steps设为10000
-
-具体batch size可看运行时的log，如：
-
-09/06/2019 21:03:41 - INFO - __main__ -   ***** Running training *****
-
-09/06/2019 21:03:41 - INFO - __main__ -     Num examples = 5872
-
-09/06/2019 21:03:41 - INFO - __main__ -     Batch size = 4
-
-09/06/2019 21:03:41 - INFO - __main__ -     Num steps = 5000
-
-
 ## Bert Whole Word Masking 模型
-
+从该网站下载pytorch权重，并解压到chinese_wwm_ex_bert目录下:  https://github.com/ymcui/Chinese-BERT-wwm
 ```shell
-#从该网站下载权重，并解压到chinese_wwm_ex_bert目录下:  https://github.com/ymcui/Chinese-BERT-wwm
 bash run_bert_wwm_ext.sh
 python combine.py --model_prefix ./model_bert_wwm_ext --out_path ./sub.csv
 ```
-## XLNet 模型
 
+## XLNet 模型
+从该网站下载pytorch权重，并解压到./chinese_xlnet_mid/目录下: https://github.com/ymcui/Chinese-PreTrained-XLNet
 ```shell
-#从该网站下载权重，并解压到./chinese_xlnet_mid/目录下: https://github.com/ymcui/Chinese-PreTrained-XLNet
 bash run_xlnet.sh
 python combine.py --model_prefix ./model_xlnet --out_path ./sub.csv
 ```
