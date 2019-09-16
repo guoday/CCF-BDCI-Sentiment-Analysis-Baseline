@@ -8,6 +8,7 @@
 | :------- | :---------: |
 | Bert-base | 80.3 |
 | Bert-wwm-ext | 80.5 | 
+| XLNet-base | 79.25 | 
 | XLNet-mid | 79.6 | 
 | XLNet-large |  --  |
 | Roberta-mid | 80.5 |
