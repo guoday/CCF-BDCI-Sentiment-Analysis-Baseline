@@ -996,7 +996,10 @@ class BertForSequenceClassification(BertPreTrainedModel):
         
 
         for w,gru in zip(self.W,self.gru):
-            gru.flatten_parameters()
+            try:
+              gru.flatten_parameters()
+            except:
+              pass
             output, hidden = gru(output)
             output = self.dropout(output)
 
