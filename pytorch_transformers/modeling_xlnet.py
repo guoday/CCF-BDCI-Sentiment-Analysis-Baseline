@@ -1150,7 +1150,10 @@ class XLNetForSequenceClassification(XLNetPreTrainedModel):
         output = output.reshape(input_ids.size(0),input_ids.size(1),-1)
         
         for w,gru in zip(self.W,self.gru):
-            gru.flatten_parameters()
+            try:
+              gru.flatten_parameters()
+            except:
+              pass
             output, hidden = gru(output)
             output = self.dropout(output)
 
